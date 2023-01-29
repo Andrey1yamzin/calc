@@ -38,30 +38,28 @@ select {
     width: 350px;
     height: 500px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.068);
+    background: rgba(255, 255, 255, 0.13);
 }
 .calc_entry-field{
+    margin-top: 50px;
     width: 100%;
     height: 80px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background: rgb(255, 255, 255);
+    background: rgba(42, 31, 104, 0.733);
+    
 }
 .entry-field__input{
     width: 100%;
     height: 40px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     
 }
 .save-input{
 width: 100%;
 height: 100%;
 border: none;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-font-size: 18px;
+font-size: 16px;
 font-family: 'Noto Sans', sans-serif;
+color: #fff;
+background: rgba(255, 255, 255, 0);
 
 }
 
@@ -69,6 +67,8 @@ font-family: 'Noto Sans', sans-serif;
     width: 100%;
     height: 100%;
     border: none;
-    font-size: 30px;
+    color: #fff;
+    font-size: 35px;
     font-family: 'Noto Sans', sans-serif;
+    background: rgba(255, 255, 255, 0);
 }
