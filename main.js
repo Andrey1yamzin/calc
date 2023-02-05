@@ -29,11 +29,52 @@ function removeAllFields(){
     return numders = [];
 }
 
+//функция сложения
+function getAddition(){
 
+    numbersTwo = numders.slice().join('');
+    numders = [];
+    console.log(numbersTwo)
+
+
+    let saveText = document.createElement('span')
+        saveText.innerHTML = `+ ${numbersTwo}`;
+        inputSaveNumbers.prepend(saveText);
+        while(inputNumbers.firstChild){
+            inputNumbers.removeChild(inputNumbers.firstChild);
+        }
+
+
+        parentButton.addEventListener('click', function(e){
+            if(e.target.innerHTML == "="){
+                while(inputNumbers.firstChild){
+                    inputNumbers.removeChild(inputNumbers.firstChild);
+                }
+                let answer = document.createElement('span')
+                // console.log(1)
+                answer.innerHTML = +numbersTwo + +numders.join('');
+                console.log(numbersTwo)//разобраться почему 2 раза идёт цикл
+                console.log(numders)
+                console.log(+numbersTwo + +numders.join(''))
+                inputNumbers.prepend(answer);
+                
+                while(inputSaveNumbers.firstChild){
+                    inputSaveNumbers.removeChild(inputSaveNumbers.firstChild);
+                }
+                numders = [];
+            }
+        })
+}
 
 
 parentButton.addEventListener('click', function(e){
-    if(e.target.innerHTML > -1 && e.target.innerHTML <= 9 || e.target.innerHTML == ','){
+
+    if(numders.length == 0){
+        while(inputNumbers.firstChild){
+            inputNumbers.removeChild(inputNumbers.firstChild);
+        }
+    }
+    if(e.target.innerHTML > -1 && e.target.innerHTML <= 9 || e.target.innerHTML == '.'){
         setNumbers(e.target.innerHTML);
     }else if(e.target.innerHTML == 'CE'){
         removeInputLine()
@@ -42,10 +83,10 @@ parentButton.addEventListener('click', function(e){
     }else if(e.target.innerHTML == '←'){
         removeLastSpan()
     }else if (e.target.innerHTML == '+'){
-        numbersTwo = numders.slice();
-        //вот тут доделать нужно, когда плюс нажимаем
+        getAddition()
+        // console.log(`${numbersTwo.join('')}${e.target.innerHTML}`)
     }
-console.log(e.target.innerHTML)
+// console.log(e.target.innerHTML)
 });
 
 function setNumbers(num){
@@ -59,12 +100,4 @@ function setNumbers(num){
     }   
 }
 
-let arr = [1, 2, 3]
-let arr2 = []
 
-arr2 = arr.slice();
-
-arr2[3] = 4;
-
-console.log(arr)
-console.log(arr2)
