@@ -2,6 +2,7 @@ let parentButton = document.querySelector('.calc_button');
 let buttons = document.querySelectorAll('.button');
 let inputNumbers = document.querySelector('.input');
 let inputSaveNumbers = document.querySelector('.save-input');
+
 let numders = [];
 let numbersTwo = [];
 
@@ -31,39 +32,48 @@ function removeAllFields(){
 
 //функция сложения
 function getAddition(){
-
-    numbersTwo = numders.slice().join('');
-    numders = [];
-    console.log(numbersTwo)
-
-
-    let saveText = document.createElement('span')
-        saveText.innerHTML = `+ ${numbersTwo}`;
-        inputSaveNumbers.prepend(saveText);
-        while(inputNumbers.firstChild){
-            inputNumbers.removeChild(inputNumbers.firstChild);
-        }
+    // console.log(numders)
+    // numbersTwo = numders.slice().join('');
+    // numders = [];
+    // console.log(numbersTwo)
+    // console.log(numders)
 
 
-        parentButton.addEventListener('click', function(e){
-            if(e.target.innerHTML == "="){
-                while(inputNumbers.firstChild){
-                    inputNumbers.removeChild(inputNumbers.firstChild);
-                }
-                let answer = document.createElement('span')
-                // console.log(1)
-                answer.innerHTML = +numbersTwo + +numders.join('');
-                console.log(numbersTwo)//разобраться почему 2 раза идёт цикл
-                console.log(numders)
-                console.log(+numbersTwo + +numders.join(''))
-                inputNumbers.prepend(answer);
+    // let saveText = document.createElement('span')
+    //     saveText.innerHTML = `+ ${numbersTwo}`;
+    //     inputSaveNumbers.prepend(saveText);
+    //     while(inputNumbers.firstChild){
+    //         inputNumbers.removeChild(inputNumbers.firstChild);
+    //     }
+
+
+    //     parentButton.addEventListener('click', function(e){
+    //         if(e.target.innerHTML == "="){
+    //             while(inputNumbers.firstChild){
+    //                 inputNumbers.removeChild(inputNumbers.firstChild);
+    //             }
+    //             console.log(numbersTwo)
+    //             console.log(numders)
+    //             // let answer = document.createElement('span')
+    //             // // console.log(1)
+    //             // answer.innerHTML = +numbersTwo + +numders.join('');
+    //             // console.log(numbersTwo)//разобраться почему 2 раза идёт цикл
+    //             // console.log(numders)
+    //             // console.log(+numbersTwo + +numders.join(''))
+    //             // inputNumbers.prepend(answer);
+
+    //             while(inputSaveNumbers.firstChild){
+    //                 inputSaveNumbers.removeChild(inputSaveNumbers.firstChild);
+    //             }
                 
-                while(inputSaveNumbers.firstChild){
-                    inputSaveNumbers.removeChild(inputSaveNumbers.firstChild);
-                }
-                numders = [];
-            }
-        })
+    //         }
+            
+    //     })
+    let numTxt = document.querySelectorAll('.numTxt');
+        for(let i = 0; i < numTxt.length; i++){
+            console.log(numTxt[i].innerHTML)
+        }
+        //нужно засунуть элементы в массив, и отправить на 2 строчку как текст
 }
 
 
@@ -94,7 +104,8 @@ function setNumbers(num){
         
     }else{
         numders.push(num);
-        let setText = document.createElement('span')
+        let setText = document.createElement('span');
+        setText.classList = 'numTxt';
         setText.innerHTML = num;
         inputNumbers.prepend(setText)
     }   
